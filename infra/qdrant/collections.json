@@ -1,0 +1,74 @@
+{
+  "_comment": "Documentation mirror of afd_oracle_core/vectors.py (PAYLOAD_INDEXES). `afd-oracle init-db` creates these; tests keep them in sync.",
+  "vectors": {
+    "dense": {
+      "size": "AFD_ORACLE_EMBED_DIM (768 for jinaai/jina-embeddings-v2-base-code)",
+      "distance": "Cosine"
+    },
+    "sparse": {
+      "bm25": {
+        "model": "Qdrant/bm25",
+        "modifier": "idf"
+      }
+    }
+  },
+  "point_id": "uuid5(namespace, neo4j uid)",
+  "collections": {
+    "code_symbols": {
+      "text": "qualname + signature + docstring + body (<= ~6k chars)",
+      "payload_indexes": {
+        "neo4j_id": "keyword",
+        "repo": "keyword",
+        "path": "keyword",
+        "path_prefixes": "keyword",
+        "kind": "keyword",
+        "lang": "keyword",
+        "alive": "bool",
+        "last_seen_commit": "keyword"
+      }
+    },
+    "commit_diffs": {
+      "text": "deterministic template: message, files (+/-, status), symbols created/modified/deleted, hunk headers",
+      "payload_indexes": {
+        "neo4j_id": "keyword",
+        "commit_hash": "keyword",
+        "repo": "keyword",
+        "ts": "integer",
+        "is_revert": "bool",
+        "is_merge": "bool",
+        "paths": "keyword",
+        "path_prefixes": "keyword",
+        "author": "keyword"
+      }
+    },
+    "architectural_insights": {
+      "text": "title + summary + evidence bullets (verified insights only)",
+      "payload_indexes": {
+        "neo4j_id": "keyword",
+        "repo": "keyword",
+        "label": "keyword",
+        "kind": "keyword",
+        "severity": "keyword",
+        "status": "keyword",
+        "commit_hashes": "keyword",
+        "symbol_ids": "keyword",
+        "paths": "keyword",
+        "path_prefixes": "keyword"
+      }
+    },
+    "security_findings": {
+      "text": "severity + scanner + rule + title + message + path:line + package/version + CVE/CWE",
+      "payload_indexes": {
+        "neo4j_id": "keyword",
+        "repo": "keyword",
+        "scanner": "keyword",
+        "severity": "keyword",
+        "rule": "keyword",
+        "path": "keyword",
+        "package": "keyword",
+        "cve": "keyword",
+        "kind": "keyword"
+      }
+    }
+  }
+}

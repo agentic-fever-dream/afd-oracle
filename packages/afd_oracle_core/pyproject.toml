@@ -1,0 +1,24 @@
+[project]
+name = "afd-oracle-core"
+version = "0.1.0"
+description = "Shared config, ids, SQLite history store, Neo4j/Qdrant clients and embedders"
+requires-python = ">=3.12"
+dependencies = [
+  "pydantic>=2.7",
+  "pydantic-settings>=2.3",
+  "neo4j>=5.20,<6",
+  # Keep the client within one minor version of the server image in infra/docker-compose.yml (v1.13.6);
+  # qdrant-client warns (and some APIs differ) beyond that. Move both together.
+  "qdrant-client>=1.13,<1.14",
+  "pygit2>=1.15",
+]
+
+[project.optional-dependencies]
+fastembed = ["fastembed>=0.4"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["afd_oracle_core"]

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__afd-oracle__identify_repo",
+      "mcp__afd-oracle__repo_overview",
+      "mcp__afd-oracle__run_cypher",
+      "mcp__afd-oracle__search_qdrant",
+      "mcp__afd-oracle__get_commit_diff",
+      "mcp__afd-oracle__get_symbol_history",
+      "mcp__afd-oracle__get_work_packets",
+      "mcp__afd-oracle__list_insights",
+      "mcp__afd-oracle__verify_citations",
+      "Bash(uv run afd-oracle:*)",
+      "Bash(date:*)"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+data/
+repos/
+reports/*.md
+.env
+infra/.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+tests/fixtures/out/
+node_modules/
+packages/afd_oracle_ui/afd_oracle_ui/static/

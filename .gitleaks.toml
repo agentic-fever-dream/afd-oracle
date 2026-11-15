@@ -1,0 +1,12 @@
+# Secret-scanning rules for CI (.github/workflows). Default gitleaks rules plus repo-specific allowances.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Test fixtures and docs that contain deliberately fake credentials"
+paths = [
+  '''tests/fixtures/''',
+  '''tests/unit/test_scan_parsers\.py''',
+  '''package-lock\.json''',
+  '''uv\.lock''',
+]
