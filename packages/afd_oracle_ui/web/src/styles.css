@@ -210,8 +210,9 @@ input[type="radio"], input[type="checkbox"] { accent-color: var(--accent); }
   border: 1px solid var(--accent-line);
 }
 .repo-card .origin { font-size: 0.8rem; color: var(--faint); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.repo-card .nums { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); padding-top: 14px; }
-.repo-card .num + .num { border-left: 1px solid var(--line); padding-left: 12px; }
+.repo-card .nums { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--line); padding-top: 14px; }
+.repo-card .num + .num { border-left: 1px solid var(--line); padding-left: 10px; }
+.repo-card .num b { font-size: 1.1rem; }
 .repo-card .num { min-width: 0; }
 .repo-card .num span { white-space: nowrap; }
 .num b { display: block; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }

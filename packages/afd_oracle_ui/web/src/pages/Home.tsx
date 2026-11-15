@@ -76,14 +76,17 @@ function RepoCard({ r }: { r: RepoSummary }) {
         )}
       </div>
       <div className="nums">
-        <div className="num"><b>{fmt(r.commits)}</b><span>commits</span></div>
-        <div className="num" title="Commits on the default branch not read by the last ingest">
+        <div className="num" title="Commits read into the knowledge base">
+          <b>{fmt(r.commits)}</b><span>ingested</span></div>
+        <div className="num" title="Commits on the local default branch not read by the last ingest">
           <b>{ingesting ? '…' : r.commits_behind == null ? '–' : fmt(r.commits_behind)}</b>
-          <span>{ingesting ? 'ingesting now' : 'to ingest'}</span></div>
+          <span>{ingesting ? 'ingesting' : 'to ingest'}</span></div>
+        <div className="num" title="Mining candidates Claude has reviewed">
+          <b>{fmt((r.packets?.done || 0) + (r.packets?.claimed || 0))}</b><span>mined</span></div>
         <div className="num" title="Mining candidates not yet reviewed by Claude">
           <b>{fmt(r.packets?.open || 0)}</b><span>to mine</span></div>
         <div className="num" title={`${fmt(r.insights?.proposed || 0)} awaiting verification, ${fmt(r.insights?.rejected || 0)} rejected`}>
-          <b>{fmt(r.insights?.verified || 0)}</b><span>insights found</span></div>
+          <b>{fmt(r.insights?.verified || 0)}</b><span>insights</span></div>
       </div>
       <div className="foot">
         <span>{r.ingested_at ? `Updated ${ago(r.ingested_at)}` : r.head ? <>Head <span className="mono">{r.head.slice(0, 8)}</span></> : ''}</span>
